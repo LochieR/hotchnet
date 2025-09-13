@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hotchnet", "hotchnet\hotchnet.csproj", "{A1EDFE5E-37C2-4DE6-A82C-44201A0D110C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1EDFE5E-37C2-4DE6-A82C-44201A0D110C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1EDFE5E-37C2-4DE6-A82C-44201A0D110C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1EDFE5E-37C2-4DE6-A82C-44201A0D110C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1EDFE5E-37C2-4DE6-A82C-44201A0D110C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {155C73E3-0C92-439F-AAF8-EDAEB4AAE446}
+	EndGlobalSection
+EndGlobal

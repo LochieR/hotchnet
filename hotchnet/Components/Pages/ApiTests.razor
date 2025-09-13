@@ -1,0 +1,38 @@
+﻿@page "/api-tests"
+@rendermode InteractiveServer
+@inject hotchnet.Dependencies.DeviceBridge DeviceBridge;
+
+<PageTitle>API tests</PageTitle>
+
+@if (DeviceBridge.LED)
+{
+	<p>LED on</p>
+}
+else
+{
+	<p>LED off</p>
+}
+
+@if (DeviceBridge.Motor)
+{
+	<p>Motor on</p>
+}
+else
+{
+	<p>Motor off</p>
+}
+
+<button class="btn btn-primary" @onclick="ToggleLED">LED</button>
+<button class="btn btn-primary" @onclick="ToggleMotor">Motor</button>
+
+@code {
+	private void ToggleLED()
+	{
+		DeviceBridge.LED = !DeviceBridge.LED;
+	}
+
+	private void ToggleMotor()
+	{
+		DeviceBridge.Motor = !DeviceBridge.Motor;
+	}
+}
