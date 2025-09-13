@@ -5,7 +5,7 @@ namespace hotchnet.Dependencies;
 public class DeviceBridge : IDisposable
 {
     private const int ControlLED = 17;
-    private const int ControlMotor = 18;
+    private const int ControlMotor = 27;
     private GpioController Controller;
 
     public bool LED
