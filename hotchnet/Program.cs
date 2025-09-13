@@ -8,6 +8,8 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddSingleton<hotchnet.Dependencies.DeviceBridge>();
 
+builder.WebHost.UseUrls("http://localhost:5000");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
