@@ -1,0 +1,37 @@
+name: Build for Raspberry Pi
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: '8.0.x'
+
+        - name: Publish for linux-arm
+          run: dotnet publish -c Release -r linux-arm --self-contained true /p:PublishTrimmed=true -o ./publish
+
+        - name: Upload artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: raspberry-pi-build
+            path: ./publish
+
+        - name: Create release
+          uses: softprops/action-gh-release@v1
+          with:
+            tag_name: ${{ github.sha }}
+            name: Build ${{ github.sha }}
+            files: ./publish/*
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
