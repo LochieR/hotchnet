@@ -27,7 +27,7 @@ jobs:
 
         - name: Publish for linux-arm
           run: |
-            dotnet publish -c Release -r linux-arm --self-contained true /p:PublishTrimmed=true -o ./publish
+            dotnet publish -c Release -r linux-arm --self-contained true /p:PublishTrimmed=false -o ./publish
             zip -r publish.zip publish
 
         - name: Create release
