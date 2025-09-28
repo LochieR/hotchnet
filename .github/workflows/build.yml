@@ -16,6 +16,10 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v3
 
+        - name: Get SHA variable
+          id: vars
+          run: echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
         - name: Setup .NET
           uses: actions/setup-dotnet@v3
           with:
@@ -29,7 +33,7 @@ jobs:
         - name: Create release
           uses: softprops/action-gh-release@v2
           with:
-            tag_name: ${{ github.sha }}
+            tag_name: ${{ env.SHORT_SHA }}
             name: Build ${{ github.sha }}
             files: |
                 publish.zip
