@@ -25,7 +25,12 @@ else
 <button class="btn btn-primary" @onclick="ToggleLED">LED</button>
 <button class="btn btn-primary" @onclick="ToggleMotor">Motor</button>
 
+<input type="number" @bind="timerMS" placeholder="Enter time in MS until LED turns on" />
+<button class="btn btn-primary" @onclick="ExecuteLEDTimer">Begin timer</button>
+
 @code {
+	private int timerMS;
+
 	private void ToggleLED()
 	{
 		DeviceBridge.LED = !DeviceBridge.LED;
@@ -34,5 +39,10 @@ else
 	private void ToggleMotor()
 	{
 		DeviceBridge.Motor = !DeviceBridge.Motor;
+	}
+
+	private void ExecuteLEDTimer()
+	{
+		DeviceBridge.ExecuteTimer(timerMS, hotchnet.Dependencies.DeviceBridge.FUNCTION_LED_ON);
 	}
 }
