@@ -19,19 +19,16 @@ jobs:
             dotnet-version: '8.0.x'
 
         - name: Publish for linux-arm
-          run: dotnet publish -c Release -r linux-arm --self-contained true /p:PublishTrimmed=true -o ./publish
-
-        - name: Upload artifact
-          uses: actions/upload-artifact@v3
-          with:
-            name: raspberry-pi-build
-            path: ./publish
+          run: |
+            dotnet publish -c Release -r linux-arm --self-contained true /p:PublishTrimmed=true -o ./publish
+            zip -r publish.zip publish
 
         - name: Create release
-          uses: softprops/action-gh-release@v1
+          uses: softprops/action-gh-release@v2
           with:
             tag_name: ${{ github.sha }}
             name: Build ${{ github.sha }}
-            files: ./publish/*
+            files: |
+                publish.zip
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
