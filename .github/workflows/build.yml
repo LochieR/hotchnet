@@ -34,7 +34,7 @@ jobs:
           uses: softprops/action-gh-release@v2
           with:
             tag_name: ${{ env.SHORT_SHA }}
-            name: Build ${{ github.sha }}
+            name: Build ${{ env.SHORT_SHA }}
             files: |
                 publish.zip
           env:
